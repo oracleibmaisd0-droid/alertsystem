@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alertas</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f2f2f2; padding: 20px; }
+    .alerta { display: none; padding: 15px; margin: 10px 0; border-radius: 8px; color: #000; display: flex; align-items: center; gap: 10px; }
+    .icono { width: 40px; height: 40px; flex-shrink: 0; }
+    /* Contenedores ocultos */
+    #svg-container, #backgrounds-container { display: none; }
+  </style>
+</head>
+<body>
+  <div align="center"><h3>Alertas activas</h3><h6><a href="https://www.google.com/intl/es_es/chrome/"><font color="#ff0000">Es posible que este sitio web no sea compatible con navegadores antiguos o visualización básica, por lo que pueden activarse todas las alertas de la base de datos.</font></a></h6></div>
+
+  <!-- ALERTAS -->
+  
+    <div id="ecoplusw" class="alerta" data-icon="forbidden">
+    <div class="icono"></div>
+    <span>ECO+<br><br>Sistema de rendimiento deshabilitado.<br><br>WorkTasker no está afiliado a ningún ecosistema de Smart Business. Afilia WorkTasker a un Smart Business compatible para obtener beneficios.</span>
+  </div>
+    <div id="temperaturax" class="alerta" data-icon="forbidden">
+    <div class="icono"></div>
+    <span>Fuera de servicio por temperatura extrema. El sistema se reanudará cuando la temperatura sea aceptable.</span>
+  </div>
+    <div id="wparcialstop" class="alerta" data-icon="forbidden">
+    <div class="icono"></div>
+    <span>WDriver:<br><br>Fuera de servicio.<br><br>(Without resources)</span>
+  </div>
+    <div id="wincidence" class="alerta" data-icon="forbidden">
+    <div class="icono"></div>
+    <span>WDriver<br><br>Zona restringida añadida.</span>
+  </div>
+  <div id="breackout" class="alerta" data-icon="danger">
+      <div class="icono"></div>
+    <span>ECO+<br><br>Error general del servicio de energía.<br><br>Las funciones de alto rendimiento quedan deshabilitadas hasta que las condiciones generales mejoren.<br><br>Es posible la disponibilidad exclusiva de funciones básicas hasta su consumo según la duración del evento.<br><br>(Boost Disabled) (Potenciador Deshabilitado)</span>
+  </div>
+  <div id="offline" class="alerta" data-icon="critical">
+    <div class="icono"></div>
+    <span>OFFLINE<br><br>Sin acceso a la red.</span>
+  </div>
+  <div id="resource0" class="alerta" data-icon="critical">
+    <div class="icono"></div>
+    <span>WITHOUT RESOURCES</span>
+  </div>
+  <div id="wdisable" class="alerta" data-icon="critical">
+    <div class="icono"></div>
+    <span>WDriver no disponible.</span>
+  </div>
+  <div id="sismo" class="alerta" data-icon="warning">
+    <div class="icono"></div>
+    <span>ALERTA DE SISMO DETECTADO<br><br>Se ha registrado actividad sísmica en la zona del servidor.<br><br>Se recomienda extremar precauciones: mantener la calma, seguir protocolos de seguridad establecidos y priorizar la integridad física en todo momento.</span>
+  </div>
+  <div id="ecoplus" class="alerta" data-icon="warning">
+    <div class="icono"></div>
+    <span>ECO+<br><br>Sistema limitado únicamente a funciones básicas.<br><br>(Boost Disabled) (Potenciador Deshabilitado)</span>
+  </div>
+  <div id="wstop" class="alerta" data-icon="warning">
+    <div class="icono"></div>
+    <span>WDriver:<br><br>No disponible temporalmente. Reserva auxiliar.<br><br>(Insufficient resources)</span>
+  </div>
+  <div id="wclimax" class="alerta" data-icon="warning">
+    <div class="icono"></div>
+    <span>WDriver no disponible en estos momentos por mal tiempo.<br><br>WDriver estará disponible cuando las condiciones climáticas mejoren.</span>
+  </div>
+  <div id="eco" class="alerta" data-icon="caution">
+    <div class="icono"></div>
+    <span>ECO<br><br>Funciones de alto rendimiento deshabilitadas.<br><br>(Boost Disabled) (Potenciador Deshabilitado)</span>
+  </div>
+  <div id="mr" class="alerta" data-icon="caution">
+    <div class="icono"></div>
+    <span>ADVERTENCIA GENERAL:<br><br>Posibles incidencias técnicas.</span>
+  </div>
+  <div id="temperatura" class="alerta" data-icon="caution">
+    <div class="icono"></div>
+    <span>Modo de disipación de calor activo.<br><br>Algunas funciones pueden estar limitadas o no disponibles para evitar el sobrecalentamiento.<br><br>(Boost Disabled) (Potenciador Deshabilitado)</span>
+  </div>
+  <div id="temperaturaforce" class="alerta" data-icon="caution">
+    <div class="icono"></div>
+    <span>ADVERTENCIA<br><br>Riesgo de sobrecalentamiento.</span>
+  </div>
+  <div id="temperatura0" class="alerta" data-icon="caution">
+    <div class="icono"></div>
+    <span>Temperatura bajo cero.<br><br>Algunas tareas no podrán realizarse para evitar averías importantes.</span>
+  </div>
+  <div id="weco" class="alerta" data-icon="caution">
+    <div class="icono"></div>
+    <span>WDriver:<br><br>Modo ECO<br><br>(Insufficient resources)</span>
+  </div>
+  <div id="wclima" class="alerta" data-icon="caution">
+    <div class="icono"></div>
+    <span>WDriver ha limitado los viajes en algunas zonas por mal tiempo hasta que las condiciones climáticas mejoren.</span>
+  </div>
+  <div id="wset" class="alerta" data-icon="caution">
+    <div class="icono"></div>
+    <span>WDriver:<br><br>Mantenimiento.</span>
+  </div>
+  <div id="wreserveuser" class="alerta" data-icon="info">
+    <div class="icono"></div>
+    <span>WDriver:<br><br>Zona de aparcamiento reservada mediante petición de Usuario.<br><br>Alternativas restantes seleccionadas.</span>
+  </div>
+ <div id="online" class="alerta" data-icon="ok">
+    <div class="icono"></div>
+    <span>ONLINE<br><br>Conectado a la red.</span>
+  </div>
+  <!-- CUALQUIER MENSAJE -->
+ <div id="ANY" class="alerta" data-icon="X">
+    <div class="icono"></div>
+    <span>X</span>
+  </div>
+  <!-- OKEY -->
+ <div id="OKEY" class="alerta" data-icon="ok">
+    <div class="icono"></div>
+    <span>NO HAY ALERTAS ACTIVAS</span>
+  </div>
+
+  <!-- Contenedor oculto de SVGs -->
+  <div id="svg-container">
+    <svg data-keyword="ok" width="40" height="40" viewBox="-5 -5 130 130">
+      <circle cx="60" cy="60" r="50" fill="#00ff00"/>
+    </svg>
+
+    <svg data-keyword="caution" width="40" height="40" viewBox="-3 -3 125 125">
+      <path d="M60 15 L105 100 L15 100 Z" fill="#ffff00" stroke="#ffff00" stroke-linejoin="round" stroke-width="10"/>
+    </svg>
+
+    <svg data-keyword="warning" width="40" height="40" viewBox="-5 -5 130 130">
+      <path d="M60 15 L105 60 L60 105 L15 60 Z" fill="#ffaa00" stroke="#ffaa00" stroke-linejoin="round" stroke-width="20"/>
+    </svg>
+
+    <svg data-keyword="critical" width="40" height="40" viewBox="3 3 115 115">
+      <rect x="20" y="20" width="80" height="80" fill="#ff0000" rx="10" ry="10"/>
+    </svg>
+
+    <svg data-keyword="question" width="40" height="40" viewBox="0 0 120 120">
+      <path d="M20 25 L100 25 L60 100 Z" fill="#0000ff" stroke="#0000ff" stroke-linejoin="round" stroke-linecap="round" stroke-width="10"/>
+    </svg>
+    
+    <svg data-keyword="info" width="40" height="40" viewBox="0 0 40 80">
+      <line x1="20" y1="20" x2="20" y2="60" stroke="#0000ff" stroke-width="12" stroke-linecap="round"/>
+    </svg>
+
+    <svg data-keyword="danger" width="40" height="40" viewBox="30 20 150 150">
+      <circle cx="100" cy="100" r="10" fill="#FF0000"/>
+      <g fill="none" stroke="#FF0000" stroke-linecap="round" stroke-width="8">
+        <path d="M115 80 A25 25 0 0 1 115 120"/>
+        <path d="M130 70 A40 40 0 0 1 130 130"/>
+      </g>
+      <g fill="none" stroke="#FF0000" stroke-linecap="round" stroke-width="8">
+        <path d="M85 80 A25 25 0 0 0 85 120"/>
+        <path d="M70 70 A40 40 0 0 0 70 130"/>
+      </g>
+    </svg>
+
+    <svg data-keyword="forbidden" width="40" height="40" viewBox="0 0 120 40">
+      <line x1="20" y1="20" x2="80" y2="20" stroke="#000000" stroke-width="15" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- Contenedor oculto de Backgrounds -->
+  <div id="backgrounds-container">
+    <div data-keyword="ok" style="background:#ccffcc;"></div>
+    <div data-keyword="caution" style="background:#ffffcc;"></div>
+    <div data-keyword="warning" style="background:#ffddaa;"></div>
+    <div data-keyword="critical" style="background:#ffcccc;"></div>
+    <div data-keyword="question" style="background:#ccccff;"></div>
+    <div data-keyword="info" style="background:#ccccff;"></div>
+    <div data-keyword="danger" style="background:#ffcccc;"></div>
+    <div data-keyword="forbidden" style="background:#cccccc;"></div>
+  </div>
+
+  <!-- PROGRAMADOR -->
+  
+  <script>
+    const alertas = [
+      { id: "breackout", fechaHoraInicio: new Date('2025-11-26T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "sismo", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "eco", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "ecoplus", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "resource0", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "ecoplusw", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "mr", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "online", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "offline", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "temperatura", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "temperaturax", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "temperaturaforce", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "temperatura0", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wdisable", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "weco", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wstop", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wparcialstop", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wclima", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wclimax", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wreserveuser", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wincidence", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wset", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      //CUALQUIER MENSAJE
+      { id: "ANY", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      //OK
+      { id: "OKEY", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') }
+    ];
+
+    function actualizarAlertas() {
+      const ahora = new Date();
+      alertas.forEach(alerta => {
+        const elemento = document.getElementById(alerta.id);
+        if (ahora >= alerta.fechaHoraInicio && ahora < alerta.fechaHoraFin) {
+          elemento.style.display = "flex";
+          const iconoDiv = elemento.querySelector('.icono');
+          const keyword = elemento.dataset.icon;
+
+          // Limpiar icono actual
+          iconoDiv.innerHTML = '';
+
+          // Clonar SVG correspondiente
+          const svgOriginal = document.querySelector(`#svg-container svg[data-keyword='${keyword}']`);
+          if (svgOriginal) {
+            const clone = svgOriginal.cloneNode(true);
+            clone.removeAttribute('id');
+            clone.setAttribute('width', '40');
+            clone.setAttribute('height', '40');
+            iconoDiv.appendChild(clone);
+          }
+
+          // Cambiar background según keyword
+          const bgOriginal = document.querySelector(`#backgrounds-container [data-keyword='${keyword}']`);
+          if (bgOriginal) {
+            elemento.style.background = bgOriginal.style.background;
+          }
+
+        } else {
+          elemento.style.display = "none";
+        }
+      });
+    }
+
+    // Comprobar cada minuto
+    actualizarAlertas();
+    setInterval(actualizarAlertas, 60000);
+  </script>
+</body>
+</html>

@@ -1,26 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alertas</title>
-  <link rel="icon" href="https://img.icons8.com/fluency/10000/settings.png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alertas</title>
+<link rel="icon" href="https://img.icons8.com/fluency/10000/settings.png">
 <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
-  
-  <style>
-    body { font-family: 'Product Sans', sans-serif; background: #000000; padding: 20px; }
-    .alerta { display: none; padding: 15px; margin: 10px 0; border-radius: 8px; color: #fff; display: flex; align-items: center; gap: 10px; }
-    .icono { width: 40px; height: 40px; flex-shrink: 0; }
-    /* Contenedores ocultos */
-    #svg-container, #backgrounds-container { display: none; }
-    
-    span {
-        text-align: justify;
-    }
-  </style>
+
+<style>
+  body {
+    font-family: 'Product Sans', sans-serif;
+    background: #000000;
+    padding: 20px;
+  }
+
+  .alerta {
+    display: none;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .icono {
+    width: 60px;   /* espacio para onda */
+    height: 60px;
+    flex-shrink: 0;
+    position: relative; /* para que onda absoluta se centre */
+  }
+
+  span {
+    text-align: justify;
+  }
+
+  /* Onda */
+  .wave {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 50%;
+    animation: wave 2s ease-out infinite;
+    z-index: 0;
+  }
+
+  @keyframes wave {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-40%, -50%) scale(2); opacity: 0; }
+  }
+
+  /* Contenedores ocultos */
+  #svg-container, #backgrounds-container { display: none; }
+
+</style>
 </head>
 <body>
-  <div align="center"><font color="#ffffff"><h3>Alertas activas</h3></font><h6><a href="https://www.google.com/intl/es_es/chrome/"><font color="#ff0000">Es posible que este sitio web no sea compatible con navegadores antiguos o visualización básica, por lo que pueden activarse todas las alertas de la base de datos.</font></a></h6></div>
+
+<div align="center">
+  <font color="#ffffff"><h3>Alertas activas</h3></font>
+  <h6>
+    <a href="https://www.google.com/intl/es_es/chrome/">
+      <font color="#ff0000">
+        Es posible que este sitio web no sea compatible con navegadores antiguos o visualización básica, por lo que pueden activarse todas las alertas de la base de datos.
+      </font>
+    </a>
+  </h6>
+</div>
 
   <!-- ALERTAS -->
   
@@ -255,7 +302,7 @@
     const alertas = [
       { id: "breackout", fechaHoraInicio: new Date('2025-11-26T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
       { id: "sismo", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
-      { id: "eco", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2026-03-01T00:00:00') },
+      { id: "eco", fechaHoraInicio: new Date('2026-01-02T00:00:00'), fechaHoraFin: new Date('2026-03-01T00:00:00') },
       { id: "ecoS", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
       { id: "ecoplus", fechaHoraInicio: new Date('2026-01-31T00:00:00'), fechaHoraFin: new Date('2026-01-01T00:00:00') },
       { id: "ecoSplus", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
@@ -289,43 +336,65 @@
       { id: "OKEY", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') }
     ];
 
-    function actualizarAlertas() {
-      const ahora = new Date();
-      alertas.forEach(alerta => {
-        const elemento = document.getElementById(alerta.id);
-        if (ahora >= alerta.fechaHoraInicio && ahora < alerta.fechaHoraFin) {
-          elemento.style.display = "flex";
-          const iconoDiv = elemento.querySelector('.icono');
-          const keyword = elemento.dataset.icon;
+function actualizarAlertas() {
+  const ahora = new Date();
+  alertas.forEach(alerta => {
+    const elemento = document.getElementById(alerta.id);
+    if (ahora >= alerta.fechaHoraInicio && ahora < alerta.fechaHoraFin) {
+      elemento.style.display = "flex";
+      const iconoDiv = elemento.querySelector('.icono');
+      const keyword = elemento.dataset.icon;
 
-          // Limpiar icono actual
-          iconoDiv.innerHTML = '';
+      iconoDiv.innerHTML = '';
 
-          // Clonar SVG correspondiente
-          const svgOriginal = document.querySelector(`#svg-container svg[data-keyword='${keyword}']`);
-          if (svgOriginal) {
-            const clone = svgOriginal.cloneNode(true);
-            clone.removeAttribute('id');
-            clone.setAttribute('width', '40');
-            clone.setAttribute('height', '40');
-            iconoDiv.appendChild(clone);
-          }
+      const svgOriginal = document.querySelector(`#svg-container svg[data-keyword='${keyword}']`);
+      if (svgOriginal) {
+        const wrapper = document.createElement('div');
+        wrapper.style.position = 'relative';
+        wrapper.style.width = '60px';
+        wrapper.style.height = '60px';
 
-          // Cambiar background según keyword
-          const bgOriginal = document.querySelector(`#backgrounds-container [data-keyword='${keyword}']`);
-          if (bgOriginal) {
-            elemento.style.background = bgOriginal.style.background;
-          }
+        // SVG principal
+        const svgClone = svgOriginal.cloneNode(true);
+        svgClone.removeAttribute('id');
+        svgClone.setAttribute('width', '40');
+        svgClone.setAttribute('height', '40');
+        svgClone.style.position = 'absolute';
+        svgClone.style.top = '50%';
+        svgClone.style.left = '50%';
+        svgClone.style.transform = 'translate(-50%, -50%)';
+        svgClone.style.zIndex = '2';
+        wrapper.appendChild(svgClone);
 
-        } else {
-          elemento.style.display = "none";
+        // Onda (solo primeras 24h)
+        const primerDiaFin = new Date(alerta.fechaHoraInicio.getTime() + 24*60*60*1000);
+        if (ahora < primerDiaFin) {
+          const wave = svgOriginal.cloneNode(true);
+          wave.removeAttribute('id');
+          wave.setAttribute('width', '40');
+          wave.setAttribute('height', '40');
+          wave.classList.add('wave');
+          wrapper.appendChild(wave);
         }
-      });
-    }
 
-    // Comprobar cada minuto
-    actualizarAlertas();
-    setInterval(actualizarAlertas, 60000);
-  </script>
+        iconoDiv.appendChild(wrapper);
+      }
+
+      // Background
+      const bgOriginal = document.querySelector(`#backgrounds-container [data-keyword='${keyword}']`);
+      if (bgOriginal) {
+        elemento.style.background = bgOriginal.style.background;
+      }
+
+    } else {
+      elemento.style.display = "none";
+    }
+  });
+}
+
+// Actualizar al cargar y cada minuto
+actualizarAlertas();
+setInterval(actualizarAlertas, 60000);
+</script>
 </body>
 </html>

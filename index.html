@@ -14,7 +14,7 @@
     padding: 20px;
   }
 
-  /* RECTÁNGULO SUPERIOR IZQUIERDO */
+  /* LED Status */
   #status-box {
     position: absolute;
     top: 10px;
@@ -71,11 +71,19 @@
 </style>
 </head>
 <body>
+<!-- Contenedor scrollable -->
+<div style="overflow-x: auto; white-space: nowrap; padding:10px;">
+  <!-- COLOR RENDIMIENTO -->
+  <div style="display: inline-block; margin-right: 10px;">
+    <div style="width:15px; height:5px; background:#0f0; display:inline-block; vertical-align:middle;"></div>
+    <span style="color:white; font-size:12px; vertical-align:middle; margin-left:5px;">Rendimiento</span>
+  </div>
 
-<!-- COLOR RENDIMIENTO -->
-<div style="position:absolute; top:10px; left:10px; display:inline-block;">
-  <div style="width:15px; height:5px; background:#0f0; display:inline-block; vertical-align:middle;"></div>
-  <span style="color:white; font-size:12px; vertical-align:middle; margin-left:5px;">Rendimiento</span>
+  <!-- COLOR WDriver control -->
+  <div style="display: inline-block; margin-right: 10px;">
+    <div style="width:15px; height:5px; background:#0f0; display:inline-block; vertical-align:middle;"></div>
+    <span style="color:white; font-size:12px; vertical-align:middle; margin-left:5px;">WDriver control</span>
+  </div>
 </div>
 
 <div align="center">
@@ -105,13 +113,13 @@
   </div>
     <div id="wincidence" class="alerta" data-icon="forbidden">
     <div class="icono"></div>
-    <span>WDriver<br><br>Zona restringida añadida.</span>
+    <span>WDriver:<br><br>Zona restringida añadida.</span>
   </div>
   <div id="breackout" class="alerta" data-icon="danger">
       <div class="icono"></div>
     <span>ECO+<br><br>Error general del servicio de energía.<br><br>Las funciones de alto rendimiento quedan deshabilitadas hasta que las condiciones generales mejoren.<br><br>Es posible la disponibilidad exclusiva de funciones básicas hasta su consumo según la duración del evento.<br><br>(Boost Disabled) (Potenciador Deshabilitado)</span>
   </div>
-  <div id="wdont" class="alerta" data-icon="critical">
+  <div id="wdont" class="alerta" data-icon="danger">
     <div class="icono"></div>
     <span>WDriver robado.<br></br>Matrícula: [9058LLV]<br></br>Extreme las precauciones.<br></br>Aplicando resoluciones legales…</span>
   </div>
@@ -149,7 +157,7 @@
   </div>
   <div id="whack" class="alerta" data-icon="warning">
     <div class="icono"></div>
-    <span>Inhibición detectada.<br></br>Aplicando resoluciones legales…</span>
+    <span>WDriver:<br><br>Inhibición detectada.<br></br>Aplicando resoluciones legales…</span>
   </div>
   <div id="eco" class="alerta" data-icon="caution">
     <div class="icono"></div>
@@ -285,7 +293,7 @@
   />
 </svg>
 
-    <svg data-keyword="danger" width="40" height="40" viewBox="50 35 130 130">
+    <svg data-keyword="danger" width="40" height="40" viewBox="45 35 130 130">
       <circle cx="100" cy="100" r="10" fill="#FF0000"/>
       <g fill="none" stroke="#FF0000" stroke-linecap="round" stroke-width="8">
         <path d="M115 80 A25 25 0 0 1 115 120"/>

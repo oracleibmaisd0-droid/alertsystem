@@ -135,6 +135,14 @@
     <div class="icono"></div>
     <span>WDriver no disponible.</span>
   </div>
+  <div id="wclimax" class="alerta" data-icon="critical">
+    <div class="icono"></div>
+    <span>WDriver no disponible en estos momentos por mal tiempo.<br><br>WDriver estará disponible cuando las condiciones climáticas mejoren.</span>
+  </div>
+  <div id="wclimal" class="alerta" data-icon="warning">
+    <div class="icono"></div>
+    <span>WDriver:<br><br>Limitación durante trayectoria por temporal desfavorable.</span>
+  </div>
   <div id="sismo" class="alerta" data-icon="warning">
     <div class="icono"></div>
     <span>ALERTA DE SISMO DETECTADO<br><br>Se ha registrado actividad sísmica en la zona del servidor.<br><br>Se recomienda extremar precauciones: mantener la calma, seguir protocolos de seguridad establecidos y priorizar la integridad física en todo momento.</span>
@@ -147,13 +155,17 @@
     <div class="icono"></div>
     <span>ECO+<br><br>Payment timeout.</span>
   </div>
+  <div id="wclima" class="alerta" data-icon="warning">
+    <div class="icono"></div>
+    <span>WDriver ha limitado los viajes en algunas zonas por mal tiempo hasta que las condiciones climáticas mejoren.</span>
+  </div>
+  <div id="wset" class="alerta" data-icon="warning">
+    <div class="icono"></div>
+    <span>WDriver:<br><br>Mantenimiento.</span>
+  </div>
   <div id="wstop" class="alerta" data-icon="warning">
     <div class="icono"></div>
     <span>WDriver:<br><br>No disponible temporalmente. Reserva auxiliar.<br><br>(Insufficient resources)</span>
-  </div>
-  <div id="wclimax" class="alerta" data-icon="warning">
-    <div class="icono"></div>
-    <span>WDriver no disponible en estos momentos por mal tiempo.<br><br>WDriver estará disponible cuando las condiciones climáticas mejoren.</span>
   </div>
   <div id="whack" class="alerta" data-icon="warning">
     <div class="icono"></div>
@@ -187,13 +199,9 @@
     <div class="icono"></div>
     <span>WDriver:<br><br>Modo ECO<br><br>(Insufficient resources)</span>
   </div>
-  <div id="wclima" class="alerta" data-icon="caution">
+  <div id="wUpdating" class="alerta" data-icon="load">
     <div class="icono"></div>
-    <span>WDriver ha limitado los viajes en algunas zonas por mal tiempo hasta que las condiciones climáticas mejoren.</span>
-  </div>
-  <div id="wset" class="alerta" data-icon="warning">
-    <div class="icono"></div>
-    <span>WDriver:<br><br>Mantenimiento.</span>
+    <span>WDriver:<br><br>Actualizando software…</span>
   </div>
   <div id="wreserveuser" class="alerta" data-icon="info">
     <div class="icono"></div>
@@ -202,6 +210,10 @@
  <div id="online" class="alerta" data-icon="ok">
     <div class="icono"></div>
     <span>ONLINE<br><br>Conectado a la red.</span>
+  </div>
+  <div id="wUpdated" class="alerta" data-icon="ok">
+    <div class="icono"></div>
+    <span>WDriver:<br><br>Software actualizado.</span>
   </div>
   <!-- CUALQUIER MENSAJE -->
  <div id="ANY" class="alerta" data-icon="caution">
@@ -347,6 +359,7 @@
       { id: "weco", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2026-01-06T00:00:00') },
       { id: "wstop", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
       { id: "wparcialstop", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wclimal", fechaHoraInicio: new Date('2026-02-15T01:00:00'), fechaHoraFin: new Date('2026-02-16T01:00:00') },
       { id: "wclima", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
       { id: "wclimax", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
       { id: "wreserveuser", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
@@ -354,6 +367,8 @@
       { id: "wset", fechaHoraInicio: new Date('2026-01-01T00:00:00'), fechaHoraFin: new Date('2027-01-01T00:00:00') },
       { id: "whack", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
       { id: "wdont", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
+      { id: "wUpdating", fechaHoraInicio: new Date('2026-02-15T00:00:00'), fechaHoraFin: new Date('2025-02-15T01:00:00') },
+      { id: "wUpdated", fechaHoraInicio: new Date('2026-02-15T01:00:00'), fechaHoraFin: new Date('2025-02-16T01:00:00') },
       //CUALQUIER MENSAJE
       { id: "ANY", fechaHoraInicio: new Date('2025-12-06T00:00:00'), fechaHoraFin: new Date('2026-02-06T00:00:00') },
       { id: "ANY2", fechaHoraInicio: new Date('2026-01-16T00:00:00'), fechaHoraFin: new Date('2026-02-16T00:00:00') },

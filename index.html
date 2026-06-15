@@ -214,6 +214,16 @@
     <div class="icono"></div>
     <span>WDriver:<br><br>Modo ECO<br><br>(Insufficient resources)</span>
   </div>
+   <div id="boostcollaps5" class="alerta" data-icon="caution">
+    <div class="icono"></div>
+    <span>WorkTasker:
+<br><br>
+Máximo rendimiento detenido;
+<br><br>
+Colapso en la sintaxis.
+<br><br>
+Reinicie WorkTasker para rearmar el módulo.</span>
+  </div>
   <div id="wUpdating" class="alerta" data-icon="load">
     <div class="icono"></div>
     <span>WDriver:<br><br>Actualizando software…</span>
@@ -224,6 +234,7 @@
 <br>
 <h5>Pruebe reduciendo el proceso de tareas o habilitando una vía de proceso paralela para que el sistema ejecute las funciones de manera simultánea, habilitado sistemas de refrigeración homologada para evitar la exposición al calor, prolongando el tiempo de reposo del sistema para una mayor carga de energía y disponiendo fuentes de combustión para la misma. Si es posible, aumente el número de núcleos que estén disponibles en caso de ser necesario (compatible en rendimiento máximo).</h5></span>
   </div>
+ 
   <div id="wreserve" class="alerta" data-icon="info">
     <div class="icono"></div>
     <span>WDriver:<br><br>Zona excepcional reservada obligatoria.</span>
@@ -366,7 +377,8 @@
     const alertas = [
       { id: "breackout", fechaHoraInicio: new Date('2025-11-26T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
       { id: "sismo", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
-      { id: "boostdificult", fechaHoraInicio: new Date('2026-06-11T09:00:00'), fechaHoraFin: new Date('2026-06-14T21:00:00') },
+      { id: "boostdificult", fechaHoraInicio: new Date('2026-06-15T15:00:00'), fechaHoraFin: new Date('2026-06-15T22:00:00') },
+      { id: "boostcollaps5", fechaHoraInicio: new Date('2026-06-15T15:00:00'), fechaHoraFin: new Date('2026-06-16T15:00:00') },
       { id: "eco", fechaHoraInicio: new Date('2026-02-01T00:00:00'), fechaHoraFin: new Date('2026-02-09T01:00:00') },
       { id: "ecoS", fechaHoraInicio: new Date('2025-01-01T00:00:00'), fechaHoraFin: new Date('2025-01-01T00:00:00') },
       { id: "ecoplus", fechaHoraInicio: new Date('2026-01-31T00:00:00'), fechaHoraFin: new Date('2026-01-01T00:00:00') },

@@ -149,6 +149,222 @@ main{
     padding:var(--size);
 }
 
+/* =========================================
+   FONDO NEGRO SEMITRANSPARENTE ALERTA GENERAL
+   ========================================= ☢️ */
+
+.fondo-alerta {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #0000007F;
+
+    pointer-events: auto;
+
+    z-index: 999997;
+}
+
+
+/* =========================================
+   TEXTO ROJO
+   ========================================= ☢️ */
+
+.alertag {
+
+    position: fixed;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 999998;
+
+    color: #ff0000;
+
+    font-size: 50px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 0 5px #ff0000,
+        0 0 12px #ff0000;
+}
+
+
+.alerta small {
+
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 30px;
+
+    font-weight: normal;
+
+    color: #ff4d4d;
+}
+
+
+/* =========================================
+   HALO ROJO CUADRADO
+   ========================================= ☢️ */
+
+.halo {
+
+    position: fixed;
+
+    inset: 15px;
+
+    pointer-events: none;
+
+    z-index: 999999;
+
+    box-shadow:
+        inset
+        0 0
+        80px
+        35px
+        rgba(255, 0, 0, 1);
+
+    animation:
+        pulsoHalo
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================
+   ANIMACIÓN DEL HALO
+   ========================================= ☢️ */
+
+@keyframes pulsoHalo {
+
+    0%,
+    100% {
+        opacity: 0.10;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+/* =========================================
+   INDICADOR DE SONIDO
+   ========================================= */
+
+#indicador-sonido {
+
+    position: fixed;
+
+    top: 25px;
+    right: 25px;
+
+    width: 42px;
+    height: 42px;
+
+    z-index: 1000001;
+
+    pointer-events: none;
+
+    color: #ff0000;
+
+    filter:
+        drop-shadow(0 0 4px #ff0000);
+
+}
+
+
+/* Iconos */
+
+.icono-sonido {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+
+    stroke: #ff0000;
+
+    stroke-width: 4;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Estado inicial: */
+
+#sonido-off {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
+
+
+/* Estado activo: */
+
+#sonido-on {
+
+    opacity: 0;
+
+    transform: scale(0.85);
+
+}
+
+
+/* Cuando el sonido está activado */
+
+#indicador-sonido.activo #sonido-off {
+
+    opacity: 0;
+
+    transform: scale(0.85);
+
+}
+
+#indicador-sonido.activo #sonido-on {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
+
+
+/* =========================================
+   AUDIO
+   ========================================= */
+
+audio {
+    display: none;
+}
+
 </style>
 </head>
 <body>
@@ -497,6 +713,134 @@ Reinicie WorkTasker para rearmar el módulo.</span>
     <div data-keyword="forbidden" style="background:#7f7f7f50;"></div>
   </div>
 
+
+<!-- =========================================
+     FONDO NEGRO
+     ========================================= ☢️ -->
+
+<div
+    class="fondo-alerta"
+    id="superficieAlerta">
+</div>
+
+
+<!-- =========================================
+     TEXTO
+     ========================================= ☢️ -->
+
+<div class="alertag">
+
+    <h3>
+        SIMULACRO
+    </h3>
+
+    <h5>
+        NO SE ALARME. ESTO ES UNA PRUEBA DE AVISO EN CASO DE CATÁSTROFE GENERALIZADO.<br><br>CASO: CATÁSTROFE DE NIVEL 2 DE 3
+    </h5>
+
+</div>
+
+
+<!-- =========================================
+     HALO
+     ========================================= -->
+
+<div class="halo"></div>
+
+
+<!-- =========================================
+     BANDAS
+     ========================================= -->
+
+<div class="borde"></div>
+
+
+<!-- =========================================
+     INDICADOR DE SONIDO
+     ========================================= ☢️ -->
+
+     <div id="indicador-sonido">
+
+
+
+    <svg
+        id="sonido-off"
+        class="icono-sonido"
+        viewBox="0 0 64 64">
+
+        
+
+        <path
+            d="M10 25 H20 L34 14 V50 L20 39 H10 Z">
+        </path>
+
+        
+
+        <line
+            x1="12"
+            y1="12"
+            x2="52"
+            y2="52">
+        </line>
+
+    </svg> 
+
+
+    
+
+    <svg
+        id="sonido-on"
+        class="icono-sonido"
+        viewBox="0 0 64 64">
+
+        
+
+        <path
+            d="M10 25 H20 L34 14 V50 L20 39 H10 Z">
+        </path>
+
+        <!-- Onda pequeña -->
+
+        <path
+            d="M40 24 Q48 32 40 40">
+        </path>
+
+        <!-- Onda grande -->
+
+        <path
+            d="M46 18 Q60 32 46 46">
+        </path>
+
+    </svg>
+
+</div>
+
+
+<!-- =========================================
+     AUDIO
+     ========================================= -->
+
+<!-- ☢️ --> <audio
+    id="sonidoAlerta"
+    preload="auto">
+
+    <source
+        src="https://www.dropbox.com/scl/fi/kb0jdrbgf1hb5bro1ydzk/Alerta2.mp3?rlkey=di4ibxpus7q8ws0olev0reowy&st=e95gzu6e&raw=1"
+        type="audio/mpeg">
+
+</audio> <!-- ☢️ -->
+
+<!-- ☢️ <audio
+    id="sonidoAlerta"
+    preload="auto">
+
+    <source
+        src="https://www.dropbox.com/scl/fi/pbzz2m6dd6z1978hax5zl/Alerta_General.mp3?rlkey=4dt0a3k4aq9bwrpsix12mf1hv&st=e8dz1ku2&raw=1"
+        type="audio/mpeg">
+
+</audio> ☢️ -->
+
+
   <!-- PROGRAMADOR -->
   
   <script>
@@ -609,6 +953,97 @@ function actualizarAlertas() {
 // Actualizar al cargar y cada minuto
 actualizarAlertas();
 setInterval(actualizarAlertas, 60000);
+
+
+/* =========================================
+   ELEMENTOS ALERTA GENERAL
+   ========================================= */
+
+const sonido =
+    document.getElementById("sonidoAlerta");
+
+const superficie =
+    document.getElementById("superficieAlerta");
+
+const indicador =
+    document.getElementById("indicador-sonido");
+
+
+/* =========================================
+   REPRODUCIR
+   ========================================= */
+
+function reproducirAlerta() {
+
+    sonido.currentTime = 0;
+
+    const promesa = sonido.play();
+
+    if (promesa !== undefined) {
+
+        promesa.then(() => {
+
+            /* Audio realmente iniciado */
+
+            indicador.classList.add("activo");
+
+        }).catch(() => {
+
+            console.log(
+                "El navegador requiere interacci贸n del usuario."
+            );
+
+        });
+
+    }
+
+}
+
+
+/* =========================================
+   AUTOPLAY (Añadido)
+   ========================================= */
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        superficie.click();
+
+    }, 500);
+
+});
+
+
+/* =========================================
+   CLICK (Añadido)
+   ========================================= */
+
+superficie.addEventListener("click", () => {
+
+    reproducirAlerta();
+
+});
+
+
+/* =========================================
+   PRIMERA INTERACCIÓN REAL
+   ========================================= */
+
+document.addEventListener(
+    "pointerdown",
+    () => {
+
+        reproducirAlerta();
+
+    },
+    {
+        once: true,
+        passive: true
+    }
+);
+
+
 </script>
 </body>
 </html>
